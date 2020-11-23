@@ -12,7 +12,7 @@ var app = new Vue ({
         axios.get("https://flynn.boolean.careers/exercises/api/array/music")
         .then(function(risposta) {
             self.album = risposta.data.response
-            
+
         });
     },
 
