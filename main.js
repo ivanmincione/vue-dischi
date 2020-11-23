@@ -5,6 +5,7 @@ var app = new Vue ({
     el: "#root",
     data: {
         album: [],
+        selected:"",
     },
 
     mounted() {
@@ -12,7 +13,7 @@ var app = new Vue ({
         axios.get("https://flynn.boolean.careers/exercises/api/array/music")
         .then(function(risposta) {
             self.album = risposta.data.response
-
+            console.log(self.album);
         });
     },
 

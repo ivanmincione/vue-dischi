@@ -40,6 +40,7 @@ section{
     background-color: aliceblue;
     text-align: center;
     margin: 20px;
+    padding: 20px;
 
 }
 
@@ -47,4 +48,5 @@ section{
     width: 100px;
     height: 100px;
     object-fit: cover;
+    margin-bottom: 10px;
 }
