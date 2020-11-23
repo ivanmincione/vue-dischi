@@ -5,7 +5,8 @@ var app = new Vue ({
     el: "#root",
     data: {
         album: [],
-        selected:"",
+        selected: "All types",
+        typeAlbum: [],
     },
 
     mounted() {
@@ -14,6 +15,15 @@ var app = new Vue ({
         .then(function(risposta) {
             self.album = risposta.data.response
             console.log(self.album);
+
+            self.album.forEach((item, i) => {
+                if(!self.typeAlbum.includes(item.genre)) {
+                    self.typeAlbum.push(item.genre)
+                    console.log(self.typeAlbum);
+                }
+
+            });
+
         });
     },
 
@@ -21,3 +31,23 @@ var app = new Vue ({
 
 //end vue
 });
+
+
+
+
+
+//
+//
+// filteredList(){
+//     // creo variabile per salvare i dati in input trasformati
+//     var userSearch = this.search.toLowerCase();
+//     // ciclo per cercare corrispondenza dei dati
+//     this.contacts.forEach((user, i) => {
+//         if(user.name.toLowerCase().includes(userSearch)){
+//             user.visible = true;
+//         }else {
+//             user.visible = false;
+//         }
+//     });
+//
+// },
