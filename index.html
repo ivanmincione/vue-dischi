@@ -22,32 +22,24 @@
                     <h1>My album</h1>
                 </div>
                 <div class="">
-                    <select v-model="selected" >
-                        <option value="All types"> All types </option>
-
-                        <option v-for="genre in typeAlbum" value="genre">{{ genre }}</option>
-
+                    <select v-model="selected"   >
+                        <option value=""> All types </option>
+                        <option v-for="genre in typeAlbum" :value="genre">{{ genre }}</option>
                     </select>
                 </div>
             </header>
 
             <section>
                 <div class="box" v-for="(element, index) in album"
-                v-if="(selected == element.genre || selected == 'All types')">
+                    v-if="(selected == element.genre || selected == '')">
                     <img :src="element.poster" :alt="element.title">
                     <h2>{{element.title}}</h2>
                     <h3>{{element.author}}</h3>
                     <p>{{element.year}}</p>
-
                 </div>
-
             </section>
 
         </div>
-
-
-
-
 
         <!-- JAVASCRIPT -->
         <script src="main.js" charset="utf-8"></script>

@@ -5,23 +5,30 @@ var app = new Vue ({
     el: "#root",
     data: {
         album: [],
-        selected: "All types",
+        selected: '',
         typeAlbum: [],
     },
+
+    // methods:{
+    //     select(){
+    //         alert('ciao');
+    //     }
+    // },
 
     mounted() {
         const self = this;
         axios.get("https://flynn.boolean.careers/exercises/api/array/music")
         .then(function(risposta) {
             self.album = risposta.data.response
-            console.log(self.album);
 
-            self.album.forEach((item, i) => {
+            self.album.forEach((item) => {
                 if(!self.typeAlbum.includes(item.genre)) {
                     self.typeAlbum.push(item.genre)
-                    console.log(self.typeAlbum);
                 }
+            });
 
+            self.album.sort(function(cd1, cd2) {
+                return parseInt(cd1.year) - parseInt(cd2.year);
             });
 
         });
